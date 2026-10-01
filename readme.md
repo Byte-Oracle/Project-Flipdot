@@ -4,3 +4,6 @@
 Project Flipdot is a web interface project/collection for the [Alfazeta](https://flipdots.com/en/home/) FLIPSTER417x282C display. I intend to create a multiple projects for it all compiled into one repository to be controlled via a web interface (using Flask).
 
 At this time it is planned to be powered with a Raspberry Pi Zero 2 but may not be powerful enough.
+
+###AI Disclaimer
+There is assistance of AI used in this project but no agentic workflows are used. All code is ultimately authored by me.
