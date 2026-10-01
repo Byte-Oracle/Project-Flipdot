@@ -5,5 +5,5 @@ Project Flipdot is a web interface project/collection for the [Alfazeta](https:/
 
 At this time it is planned to be powered with a Raspberry Pi Zero 2 but may not be powerful enough.
 
-###AI Disclaimer
+### AI Disclaimer
 There is assistance of AI used in this project but no agentic workflows are used. All code is ultimately authored by me.
