@@ -1,40 +1,27 @@
-import threading
 from flask import Flask, render_template, redirect, url_for
-from features import test as test_feature
+from features import flip_clock_feature as flip_clock
+from lib import display, transitions
 
-display_lock = threading.Lock()
-stop_event = threading.Event()
 app = Flask(__name__)
-
-def run_feature(func):
-    # Only start the feature if nothing else is using the display
-    if not display_lock.acquire(blocking=False):
-        return
-
-    stop_event.clear()
-
-    def job():
-        try:
-            func(stop_event)
-        finally:
-            display_lock.release()
-
-    threading.Thread(target=job).start()
-
-def stop_feature():
-    # Ask the running feature to stop; it has to check stop_event to notice
-    stop_event.set()
+screen_size = (display.WIDTH, display.HEIGHT)
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.post("/test")
-def test():
-    run_feature(test_feature.run)
+@app.post("/clock")
+def clock():
+    display.run(flip_clock.start, screen_size)
+    return redirect(url_for("index"))
+
+@app.post("/transition")
+def transition():
+    display.run(transitions.get_rand_transition().start(screen_size))
     return redirect(url_for("index"))
 
 @app.post("/stop")
 def stop():
-    stop_feature()
+    display.stop()
     return redirect(url_for("index"))
+
+display.run(transitions.get_rand_transition().start, screen_size)

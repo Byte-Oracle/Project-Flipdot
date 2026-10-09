@@ -17,6 +17,6 @@ def text_to_lines(text):
     lines = []
     for c in text:
         letter = FONT.get(c, FONT[" "])
-        lines += [f"0x{col:02X}" for col in letter]
-        lines += [f"0x00"]
+        lines += letter
+        lines += [0x00]
     return lines

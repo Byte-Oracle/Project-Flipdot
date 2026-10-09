@@ -2,10 +2,13 @@
 <body>
     <h1>Project Flipdot</h1>
     <p>Getting things prepared</p>
-    <form action="{{url_for('test')}}" method="POST">
-            <button>Test</button>
+    <form action="{{url_for('clock')}}" method="POST">
+        <button>Clock</button>
     </form>
     <form action="{{url_for('stop')}}" method="POST">
-            <button>Stop</button>
+        <button>Stop</button>
+    </form>
+    <form action="{{url_for('transition')}}" method="POST">
+        <button>Random transition</button>
     </form>
 </body>
