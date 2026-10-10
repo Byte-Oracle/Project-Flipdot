@@ -5,10 +5,28 @@
     <form action="{{url_for('clock')}}" method="POST">
         <button>Clock</button>
     </form>
+    <form action="{{url_for('scrolling_text')}}" method="POST">
+        <p>
+            <label for="input">Input Text</label>
+            <input type="text" id="input" name="input_text" placeholder="Change Me">
+        </p>
+        <p>
+            <label for="speed">Speed</label>
+            <input type="range" id="speed" name="animation_speed" min="0.025" max="0.75" step="0.01" value="0.15">
+        </p>
+        <p>
+            <label>
+                <input type="checkbox" id="loop" name="loop_toggle">
+                Toggle Loop
+            </label>
+        </p>
+        <button>Scrolling Text</button>
+    </form>
     <form action="{{url_for('stop')}}" method="POST">
         <button>Stop</button>
     </form>
     <form action="{{url_for('transition')}}" method="POST">
         <button>Random transition</button>
     </form>
+
 </body>
