@@ -41,5 +41,4 @@ def stop():
     return redirect(url_for("index"))
 
 
-
 display.run(transitions.get_rand_transition().start, screen_size)

@@ -1,13 +1,18 @@
 import mcstatus, time
-from lib import display, text_lib, text_scroll, transitions
+from lib import display, text_lib, text_scroll, transitions, defaults
 
 def start(screen_size, server_address, speed=0.1, wait=30):
-    server = mcstatus.JavaServer.lookup(str(server_address), timeout=3)
+    addr = ""
+    if server_address == "" :
+        addr = defaults.MINECRAFT_SERVER
+    else:
+        addr = server_address
+    server = mcstatus.JavaServer.lookup(str(addr), timeout=3)
     while not display.stop_event.is_set():
         try:
             status = server.status()
         except OSError:
-            display.draw(text_lib.text_to_lines("OFF"))
+            display.draw(text_lib.text_to_lines_small("Offline"))
             if display.stop_event.wait(wait):
                 break
             continue

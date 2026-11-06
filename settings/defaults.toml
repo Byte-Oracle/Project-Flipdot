@@ -1,0 +1,3 @@
+scrolling_text="This is the default really long looping text"
+scrolling_text_loop=true
+minecraft_server="mc.byteoracle.com"
