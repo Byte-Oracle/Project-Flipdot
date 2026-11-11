@@ -2,3 +2,4 @@
 .DS_Store
 nohup.out
 __pycache__/
+settings/local.toml

@@ -2,13 +2,21 @@ import tomllib
 from pathlib import Path
 
 default_settings_file = Path(__file__).resolve().parent.parent/"settings"/"defaults.toml"
+local_settings_file = Path(__file__).resolve().parent.parent/"settings"/"local.toml"
+
+def read(path: Path) -> dict:
+    with open(path, "rb") as f:
+        return tomllib.load(f)
 
 def load() -> dict:
-    with open(default_settings_file, "rb") as f:
-        return tomllib.load(f)
+    settings = read(default_settings_file)
+    if not local_settings_file.exists():
+        local_settings_file.write_text("# Add in what you want overwritten here\n")
+    settings.update(read(local_settings_file))
+    return settings
 
 settings = load()
 
 SCROLLING_TEXT: str = settings.get("scrolling_text", "")
-SCOLLING_TEXT_LOOP: str = settings.get("scrolling_text_loop", "")
+SCROLLING_TEXT_LOOP: str = settings.get("scrolling_text_loop", "")
 MINECRAFT_SERVER: bool = settings.get("minecraft_server", "")

@@ -5,7 +5,7 @@ def start(screen_size, text, speed, loop):
     is_looping = True
     if text == "":
         txt = defaults.SCROLLING_TEXT
-        is_looping = defaults.SCOLLING_TEXT_LOOP
+        is_looping = defaults.SCROLLING_TEXT_LOOP
     else:
         txt = text
         is_looping = loop
