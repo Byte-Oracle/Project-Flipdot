@@ -2,3 +2,8 @@
 scrolling_text="This is the default really long looping text"
 scrolling_text_loop=true
 minecraft_server="play.mccisland.net"
+
+# Set these in local.toml (LAN mode IP, access code, and serial from the printer)
+bambu_ip=""
+bambu_access_code=""
+bambu_serial_number=""

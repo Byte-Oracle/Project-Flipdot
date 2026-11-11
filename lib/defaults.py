@@ -20,3 +20,7 @@ settings = load()
 SCROLLING_TEXT: str = settings.get("scrolling_text", "")
 SCROLLING_TEXT_LOOP: str = settings.get("scrolling_text_loop", "")
 MINECRAFT_SERVER: bool = settings.get("minecraft_server", "")
+
+BAMBU_IP: str = settings.get("bambu_ip", "")
+BAMBU_ACCESS_CODE: str = settings.get("bambu_access_code", "")
+BAMBU_SERIAL_NUMBER: str = settings.get("bambu_serial_number", "")

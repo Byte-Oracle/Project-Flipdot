@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-from features import flip_clock_feature as flip_clock, text_scroll_feature, mc_server_status_feature
+from features import flip_clock_feature as flip_clock, text_scroll_feature, mc_server_status_feature, bambu_labs_printer_feature
 from lib import display, transitions
 
 app = Flask(__name__)
@@ -28,6 +28,12 @@ def mc_server_status():
     speed = float(request.form.get("animation_speed", 0.1))
     wait = int(request.form.get("wait", 30))
     display.run(mc_server_status_feature.start, screen_size, address, speed, wait)
+    return redirect(url_for("index"))
+
+@app.post("/bambu_printer")
+def bambu_printer():
+    wait = int(request.form.get("wait", 5))
+    display.run(bambu_labs_printer_feature.start, screen_size, wait)
     return redirect(url_for("index"))
 
 @app.post("/transition")

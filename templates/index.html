@@ -50,6 +50,17 @@
     </fieldset>
 
     <fieldset>
+        <legend>Bambu Printer</legend>
+        <form action="{{url_for('bambu_printer')}}" method="POST">
+            <p>
+                <label for="bambu_wait">Switch Interval (seconds)</label>
+                <input type="number" id="bambu_wait" name="wait" min="1" value="5">
+            </p>
+            <button>Printer Status</button>
+        </form>
+    </fieldset>
+
+    <fieldset>
         <legend>Other</legend>
         <form action="{{url_for('transition')}}" method="POST">
             <button>Random transition</button>
